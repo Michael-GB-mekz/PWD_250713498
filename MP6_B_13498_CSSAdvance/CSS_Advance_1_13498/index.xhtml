@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="id" lang="id">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Formulir Pendaftaran Organisasi</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        
+        <div id="thank-you-message" style="display: none;">
+            <div class="success-icon">&#10004;</div>
+            <h2>Pendaftaran Berhasil!</h2>
+            <p>Terima kasih telah mendaftar di <strong>Organisasi Mahasiswa</strong>.</p>
+            <p class="sub-text">Berkas dan data Anda sedang ditinjau. Informasi seleksi selanjutnya akan dikirim melalui WhatsApp/Email.</p>
+            <button type="button" onclick="location.reload()" class="back-btn">Isi Form Lagi</button>
+        </div>
+
+        <div id="form-content">
+            <h1>Formulir Pendaftaran Organisasi</h1>
+            <p class="subtitle">Bergabunglah bersama kami dan kembangkan potensi terbaik Anda!</p>
+            
+            <form id="form-pendaftaran" action="" method="post" enctype="multipart/form-data" onsubmit="return submitForm(event)">
+                
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title">1. Data Pribadi &amp; Kontak</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="nama">Nama Lengkap</label></td>
+                        <td><input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="nim">NIM</label></td>
+                        <td><input type="text" id="nim" name="nim" placeholder="Contoh: 21102001" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="prodi">Program Studi</label></td>
+                        <td>
+                            <select id="prodi" name="prodi" required="required">
+                                <option value="">-- Pilih Program Studi --</option>
+                                <option value="Informatika">Informatika</option>
+                                <option value="Sistem Informasi">Sistem Informasi</option>
+                                <option value="Teknik Industri">Teknik Industri</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="email">Alamat Email</label></td>
+                        <td><input type="text" id="email" name="email" placeholder="contoh@email.com" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="telepon">Nomor WhatsApp/HP</label></td>
+                        <td><input type="text" id="telepon" name="telepon" placeholder="Contoh: 081234567890" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Jenis Kelamin</td>
+                        <td>
+                            <div class="options-group">
+                                <label><input type="radio" id="laki" name="jk" value="Laki-Laki" required="required" /> Laki-Laki</label>
+                                <label><input type="radio" id="perempuan" name="jk" value="Perempuan" /> Perempuan</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="semester">Semester Saat Ini</label></td>
+                        <td>
+                            <select id="semester" name="semester" required="required">
+                                <option value="">-- Pilih Semester --</option>
+                                <option value="Semester 1">Semester 1</option>
+                                <option value="Semester 2">Semester 2</option>
+                                <option value="Semester 3">Semester 3</option>
+                                <option value="Semester 4">Semester 4</option>
+                                <option value="Semester 5">Semester 5</option>
+                                <option value="Semester 6">Semester 6</option>
+                                <option value="Semester 7">Semester 7</option>
+                                <option value="Semester 8">Semester 8</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title">2. Minat Divisi &amp; Skill</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Divisi yang Diminati</td>
+                        <td>
+                            <div class="options-group">
+                                <label><input type="radio" id="acara" name="divisi" value="Acara" required="required" /> Divisi Acara</label>
+                                <label><input type="radio" id="sdm" name="divisi" value="SDM" /> Divisi SDM</label>
+                                <label><input type="radio" id="humas" name="divisi" value="Humas" /> Divisi Humas</label>
+                                <label><input type="radio" id="media" name="divisi" value="Media" /> Divisi Media</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Pengalaman &amp; Keahlian</td>
+                        <td>
+                            <div class="sub-group">
+                                <strong class="sub-title">Kegiatan yang Pernah Diikuti:</strong>
+                                <div class="options-group">
+                                    <label><input type="checkbox" id="kepanitiaan" name="pengalaman" value="Kepanitiaan" /> Kepanitiaan</label>
+                                    <label><input type="checkbox" id="organisasi" name="pengalaman" value="Organisasi" /> Organisasi</label>
+                                    <label><input type="checkbox" id="volunteer" name="pengalaman" value="Volunteer" /> Volunteer</label>
+                                </div>
+                            </div>
+                            <div class="sub-group" style="margin-top: 12px;">
+                                <strong class="sub-title">Kemampuan / Hard-Soft Skill:</strong>
+                                <div class="options-group">
+                                    <label><input type="checkbox" id="publicspeaking" name="kemampuan" value="Public Speaking" /> Public Speaking</label>
+                                    <label><input type="checkbox" id="desain" name="kemampuan" value="Desain" /> Desain Grafis</label>
+                                    <label><input type="checkbox" id="fotografi" name="kemampuan" value="Fotografi" /> Fotografi / Videografi</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title">3. Motivasi &amp; Berkas Pendaftaran</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="alasan">Alasan Bergabung</label></td>
+                        <td>
+                            <textarea id="alasan" name="alasan" rows="5" placeholder="Tuliskan motivasi dan kontribusi yang ingin Anda berikan..."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="cv">Unggah CV Kreatif</label></td>
+                        <td>
+                            <input type="file" id="cv" name="cv" accept="application/pdf" />
+                            <span class="file-info">*Format berkas yang diperbolehkan: PDF (Maksimal 2MB)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="btn-cell">
+                            <input type="submit" name="daftar" value="Kirim Pendaftaran" class="submit-btn" />
+                        </td>
+                    </tr>
+                </table>
+                
+            </form>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        function submitForm(event) {
+            event.preventDefault();
+            document.getElementById('form-content').style.display = 'none';
+            document.getElementById('thank-you-message').style.display = 'block';
+            return false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="id" lang="id">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Formulir Pendaftaran Workshop Skill Up 2026</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        
+        <div id="thank-you-message" style="display: none;">
+            <div class="success-icon">&#10004;</div>
+            <h2>Terima Kasih!</h2>
+            <p>Pendaftaran Anda pada <strong>Workshop Digital Skills</strong> telah berhasil dikirim.</p>
+            <p class="sub-text">Kami telah mengirimkan rincian konfirmasi ke kontak Anda.</p>
+            <button type="button" onclick="location.reload()" class="back-btn">Isi Form Lagi</button>
+        </div>
+
+        <div id="form-content">
+            <h1>Form Pendaftaran Workshop Digital Skills</h1>
+            <p class="subtitle">Lengkapi formulir di bawah ini untuk mengamankan kursi Anda!</p>
+            
+            <form id="form-pendaftaran" action="" method="post" enctype="multipart/form-data" onsubmit="return submitForm(event)">
+                
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title">1. Biodata Calon Peserta</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="nama">Nama Lengkap</label></td>
+                        <td><input type="text" id="nama" name="nama" placeholder="Masukkan nama sesuai identitas" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="nim">NIM / NIK</label></td>
+                        <td><input type="text" id="nim" name="nim" placeholder="Contoh: 21102001" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Jenis Kelamin</td>
+                        <td>
+                            <div class="options-group">
+                                <label><input type="radio" id="laki" name="jk" value="Laki-laki" required="required" /> Laki-laki</label>
+                                <label><input type="radio" id="perempuan" name="jk" value="Perempuan" /> Perempuan</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="prodi">Program Studi / Jurusan</label></td>
+                        <td>
+                            <select id="prodi" name="prodi" required="required">
+                                <option value="">-- Pilih Program Studi --</option>
+                                <option value="Informatika">Informatika</option>
+                                <option value="Sistem Informasi">Sistem Informasi</option>
+                                <option value="Teknik Industri">Teknik Industri</option>
+                                <option value="Lainnya">Lainnya (Umum)</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title">2. Detail Workshop &amp; Kategori</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Kategori Peserta</td>
+                        <td>
+                            <div class="options-group">
+                                <label><input type="radio" id="mahasiswa" name="jenis_peserta" value="Mahasiswa" required="required" /> Mahasiswa Internal</label>
+                                <label><input type="radio" id="umum" name="jenis_peserta" value="Umum" /> Peserta Umum</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Pilihan Topik Workshop</td>
+                        <td>
+                            <div class="options-group vertical">
+                                <label><input type="checkbox" id="uiux" name="materi" value="UI/UX Design" /> UI/UX Design &amp; Prototyping</label>
+                                <label><input type="checkbox" id="webdev" name="materi" value="Web Development" /> Modern Web Development</label>
+                                <label><input type="checkbox" id="data" name="materi" value="Data Analysis" /> Data Science &amp; Analytics</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title">3. Pembayaran &amp; Konfirmasi</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="alasan">Motivasi Mengikuti Workshop</label></td>
+                        <td>
+                            <textarea id="alasan" name="alasan" rows="5" placeholder="Ceritakan ekspektasi Anda..."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Metode Pembayaran</td>
+                        <td>
+                            <div class="options-group">
+                                <label><input type="radio" id="qris" name="pembayaran" value="QRIS" required="required" /> Instant QRIS</label>
+                                <label><input type="radio" id="transfer" name="pembayaran" value="Transfer Bank" /> Transfer Bank</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><label for="bukti">Unggah Bukti Bayar</label></td>
+                        <td>
+                            <input type="file" id="bukti" name="bukti" />
+                            <span class="file-info">*Format yang diterima: JPG, PNG, atau PDF (Max 2MB)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="btn-cell">
+                            <input type="submit" name="daftar" value="Kirim Pendaftaran" class="submit-btn" />
+                        </td>
+                    </tr>
+                </table>
+                
+            </form>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        function submitForm(event) {
+            event.preventDefault();
+            document.getElementById('form-content').style.display = 'none';
+            document.getElementById('thank-you-message').style.display = 'block';
+            return false;
+        }
+    </script>
+</body>
+</html>
