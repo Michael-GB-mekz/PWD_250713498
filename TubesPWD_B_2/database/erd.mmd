@@ -1,0 +1,107 @@
+erDiagram
+    users ||--o{ cart_items : "punya"
+    menus ||--o{ cart_items : "dimasukkan ke"
+    users ||--o{ orders : "memesan"
+    orders ||--|{ order_items : "berisi"
+    menus |o--o{ order_items : "dipesan sebagai"
+    users ||--o{ user_promos : "mengklaim"
+    promos ||--o{ user_promos : "diklaim lewat"
+
+    users {
+        int id PK
+        varchar nama_lengkap
+        varchar username UK
+        varchar email UK
+        varchar password
+        varchar no_hp
+        varchar foto_profil
+        enum role "user"
+        timestamp created_at
+    }
+    menus {
+        int id PK
+        varchar nama_menu
+        varchar grup_menu
+        varchar filter_tag
+        tinyint is_signature
+        int harga_hot
+        int harga_ice
+        varchar deskripsi
+        varchar gambar_url
+    }
+    cart_items {
+        int id PK
+        int user_id FK
+        int menu_id FK
+        varchar penyajian
+        varchar gula
+        varchar es
+        varchar catatan
+        int qty
+        timestamp created_at
+    }
+    orders {
+        int id PK
+        varchar kode_antrean
+        int user_id FK
+        varchar nama_pemesan
+        varchar no_wa
+        varchar lokasi_ambil
+        varchar jarak_info
+        varchar metode_ambil
+        varchar waktu_ambil
+        varchar metode_bayar
+        int subtotal
+        int diskon
+        varchar promo_nama
+        int total_bayar
+        int uang_diterima
+        text rincian_item
+        varchar catatan
+        enum status
+        enum sumber "online, kasir"
+        int dibuat_oleh
+        timestamp created_at
+    }
+    order_items {
+        int id PK
+        int order_id FK
+        int menu_id FK
+        varchar nama_menu
+        varchar penyajian
+        int qty
+        int harga
+        varchar catatan
+    }
+    promos {
+        int id PK
+        varchar nama_promo
+        varchar deskripsi
+        varchar jenis
+        int diskon_persen
+        int berlaku_hari
+        int batas_pakai
+        int kuota
+        datetime klaim_sampai
+        tinyint aktif
+        timestamp created_at
+    }
+    user_promos {
+        int id PK
+        int user_id FK
+        int promo_id FK
+        datetime berlaku_sampai
+        int jumlah_dipakai
+        timestamp created_at
+    }
+    hero_fotos {
+        int id PK
+        varchar sumber
+        varchar jenis
+        int urutan
+        timestamp created_at
+    }
+    pengaturan {
+        varchar kunci PK
+        varchar nilai
+    }
